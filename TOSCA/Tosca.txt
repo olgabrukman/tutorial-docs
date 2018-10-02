@@ -1,0 +1,39 @@
+============================================================================
+TOSCA (Topology and Orchestration Specification for Cloud Applications)
+============================================================================
+TOSCA is an Intent Model which is declarative and incorporates both Data and Information Model features and concepts.
+Intenet model:
+	Topology: nodes -resources/components
+	Composition: dependencies between nodes
+	Requirements - Capabilities: Relationships can be customized to match specific source requirements to target capabilities
+	State (Nodes, Relationships)
+	Lifecycle (Management): TOSCA has Standardized Lifecycle & States. 
+							Nodes have their own Lifecycle Operations which are invoked in order to achieve a target state (create->configure->start->stop->delete).
+							Relationships also have their own Lifecycle Operations to configure or allocate and de-configure or deallocate Node related resources
+							Given nodeA(source_resource)->(connectsTo)nodeB (target_resource). Operations on nodeA: pre_config_source->post_config_source->add_source->remove_source. 
+							Operations on nodeB: pre_config_traget->post_config_target->add_target->remove_target.
+							The Orchestrator moves the nodes through their Lifecycle States by executing their Lifecycle Operations in topological order. 
+							Orchestrators can work to deploy nodes in parallel based upon node relationships
+	Policy: Policies are non-functional Requirements independent of nodes.
+			Orchestrators can evaluate Conditions based on Events that trigger Automatic or Imperative Actions definied in Policy. Policy types: Placement (Affinity), Scaling and Performance.
+			Policies can be declared independently and attached to various points in your models, e.g. Interfaces, specific Operations, Nodes, and  Groups of Nodes. 
+
+
+	
+Data model:	
+data structure/format/interfaces
+
+Information model:
+models a constrained domainm described by types, properties, relationships and operations.
+
+TOSCA can include other data models (e.g. JSON, YANG).
+TOSCA can work with imperative scripts (e.g. Ansible, Chef, Bash, Ant, etc.). 
+TOSCA applications, using normative types, are portable to different Cloud infrastructures.
+Abstract nodes in one TOSCA topology can be substituted with another topology.
+TOSCA Orchestrators find “Best Match” cloud provider during deployment
+
+Property (values) reflect “desired” state (design time).
+Attribute (values) reports “actual” state (run-time).
+ALL Properties have implicit Attributes.
+
+
