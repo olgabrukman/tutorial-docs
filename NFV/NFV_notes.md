@@ -1,11 +1,11 @@
-==========================================
+
 NFV (Network Function Virtualization)
 ==========================================
 NFV is a network architecture concept. Entire classes of network node functions are virtualized, becoming building blocks that can connect or chain together to create communication services. 
 NaaS -Network Connectvity as a service:
-	Manage network itself
-	Provide bandwidth on demand
-	Network abstraction
+	*Manage network itself
+	*Provide bandwidth on demand
+	*Network abstraction
 
 Sofware can be baught as SaaS (can build private cloud on spec), NaaS is required to connect cloud components.
 
@@ -26,9 +26,6 @@ Programmable (enterprise) - should be able to change behavior on the fly
 Dynamic scaling (cloud)
 Automation - minimize manual involvment (troubleshooting, reduce downtime, policy enforcement, provisioning/re-provisioning/segmentation of resources).
 OpenFlow Network (slide 72)
-
-
-slide 80
 
 
 
