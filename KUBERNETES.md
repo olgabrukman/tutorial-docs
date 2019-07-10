@@ -69,7 +69,7 @@ file and network usage of containers on each node.
 ## Kuberenetis Commands
 [Hands-on Tutorial](https://www.katacoda.com/courses/kubernetes)
 
-## Launch single node cluster
+## Launch a Single Node Cluster
 ```ssh
 //info
 kubectl cluster-info
@@ -106,7 +106,7 @@ kubectl get pods
 docker ps | grep docker-http-server
 ``` 
 
-## Launch a multi-tier web application using Kubernetes and Docker. 
+## Launch a Multi-Tier Web Application Using Kubernetes and Docker. 
 The Guestbook example application stores notes from guests in Redis via JavaScript API calls. 
 Redis contains a master (for storage), and a replicated set of redis 'slaves'.
 ```ssh
@@ -513,5 +513,5 @@ kubeless function update toy --from-file toy-update.py
 kubeless function delete toy
 ```
 
-## HELM CHART: INTORDUCTION
-(https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart/)
+## Helm Chart: Introduction
+https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart/
