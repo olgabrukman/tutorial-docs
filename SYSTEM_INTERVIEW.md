@@ -40,14 +40,14 @@ on a session state to serve a request. Sessions need to be stored in a centraliz
 to all your application servers, i.e. DB or persistent cache (e.g. Redis).
 
 Horizontal scaling has a bottleneck - relational DB used in the sustem to store sessions and other user data.
-* Path #1: optimize relational DB: do master-slave replication, make master server super strong (add lots of RAM).
+* **Path #1: optimize relational DB** do master-slave replication, make master server super strong (add lots of RAM).
 	* Sharding is a type of database partitioning that separates very large databases the into smaller, faster, 
 	more easily managed parts called data shards
 	* Denormalization is a strategy used on a previously-normalized database to increase performance. 
 	In computing, denormalization is the process of trying to improve the read performance of a database, 
 	at the expense of losing some write performance, by adding redundant copies of data or by grouping data.
 
-* Path #2:  denormalize right from the beginning and include no more Joins in any database query => switch to NoSql DB.
+* **Path #2: denormalize right from the beginning and include no more Joins in any database query => switch to NoSql DB.**
 Joins will now need to be done in your application code. But even if you successfully switch to the latest and greatest 
 NoSQL database and let your app do the dataset-joins, soon your database requests will again be slower and slower. You 
 will need to introduce a cache.
@@ -67,7 +67,7 @@ There are two patterns of caching your data:
 Use asynchronious communication instead of busy-wait or even notification-based wait.
 
 
-## SYSTEM INTERVIEW: HOW TO DESIGN LARGE-SCALE SYSTEMS STEP-BY-STEP
+## System Interview: How to Design Large-Scale System Step-by-Step
 
 https://github.com/donnemartin/system-design-primer
 
@@ -86,7 +86,7 @@ uniformity either break down under these conditions or underutilize the newer re
 #### Scalability, Availability, and Stability Patterns
 https://www.slideshare.net/jboner/scalability-availability-stability-patterns/46-MasterMaster_Replication
 
-##Scalability Patterns
+## Scalability Patterns
 * Scale up or scale out
 * CAP Theorem: at any given point in time you can only pick 2 out of the following 3:
 	* Consistency
@@ -94,8 +94,8 @@ https://www.slideshare.net/jboner/scalability-availability-stability-patterns/46
 	* Partition tolerance 
 
 In practice there are only 2 types of systems: 
-* CP (consistency+avaialability) 
-* AP (availability+partition tolerance, i.e., sucha system provides eventual consistency as replacement of full consistency).
+* **CP** (consistency+avaialability) 
+* **AP** (availability+partition tolerance, i.e., sucha system provides eventual consistency as replacement of full consistency).
 
 ### Stability Patterns (Patterns for Storing System State)
 * **HTTP Caching:** e.g. Acamai
