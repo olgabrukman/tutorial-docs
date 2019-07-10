@@ -1,5 +1,0 @@
-==================================================
-		MAPSTRUCT AND LOMBOK
-==================================================
-
-https://github.com/mapstruct/mapstruct-examples
