@@ -37,13 +37,13 @@ Why ElasticSearch
 
 Comparison between Elasticsearch and Relational DB
 ======================================================
-|Elasticsearch     |	RDBMS      | 
------------------------------------|
-|Index		  |	Database   |
-|Shard		  |	Shard      |
-|Mapping	  |	Table      |
-|Field		  |	Field      |
-|JSON Object	  |	Tuple      |
+Elasticsearch     |	RDBMS       
+-----------------------------------
+Index		  |	Database   
+Shard		  |	Shard      
+Mapping	          |	Table      
+Field		  |	Field      
+JSON Object	  |	Tuple      
 
 
 Java  API
