@@ -71,7 +71,7 @@ Use asynchronious communication instead of busy-wait or even notification-based 
 
 https://github.com/donnemartin/system-design-primer
 
-### Why is scalability so hard? 
+### Why Is Scalability So Hard? 
 Because scalability cannot be an after-thought. It requires applications and platforms to be designed with scaling in mind, 
 such that adding resources actually results in improving the performance or that if redundancy is introduced the system 
 performance is not adversely affected. 
@@ -82,9 +82,8 @@ or more powerful resources become more cost-effective or when some resources are
 that some nodes will be able to process faster or store more data than other nodes in a system and algorithms that rely on 
 uniformity either break down under these conditions or underutilize the newer resources.
 
-==================================================================
-SCALABILITY, AVAILABILITY, AND STABILITY PATTERNS
-==================================================================
+
+#### Scalability, Availability, and Stability Patterns
 https://www.slideshare.net/jboner/scalability-availability-stability-patterns/46-MasterMaster_Replication
 
 ##Scalability Patterns
@@ -98,11 +97,10 @@ In practice there are only 2 types of systems:
 * CP (consistency+avaialability) 
 * AP (availability+partition tolerance, i.e., sucha system provides eventual consistency as replacement of full consistency).
 
-### State
-Partitioning types:
-* HTTP Caching: e.g. Acamai
-* RDBMS Sharding: Sharding - Partitioning +Replicating data among nodes in case some nodes will fail, so that the data will be restored from backup copies. Scaling read requests in RDBMS is hard, scaling write requests is impossible.
-* NoSQL: based on Distributed Hash Tables, which are scalable, partitioned, fault-tolerant, decentralized, peer-to-peer, popularized. NoSQL DBs: 
+### Stability Patterns (Patterns for Storing System State)
+* **HTTP Caching:** e.g. Acamai
+* **RDBMS Sharding:** Sharding - Partitioning +Replicating data among nodes in case some nodes will fail, so that the data will be restored from backup copies. Scaling read requests in RDBMS is hard, scaling write requests is impossible.
+* **NoSQL:** based on Distributed Hash Tables, which are scalable, partitioned, fault-tolerant, decentralized, peer-to-peer, popularized. NoSQL DBs: 
 	* Google-BigTable (built on top of Google File System)
 	* Amazon-Dynamo 
 	* SimpleDB 
@@ -115,7 +113,7 @@ Partitioning types:
 		* Document: MongoDB, CouchDB
 		* Graph: Neo4J
 		* Datastructure: Redis
-* Distributed Caching
+* **Distributed Caching**
 	* Write-through
 	* Write-behind
 	* Eviction policies: TTL (time to live), bounded FIFO, bounded LIFO, explicit cache invalidation
@@ -123,7 +121,7 @@ Partitioning types:
 	* Peer-to-peer: no leader/master, nodes can join and leave at any time
 	* Distributed Caching Products: EHCache, JBoss Cache, OSCache. memcached
 	* Data Grids/Clustering: parallel data storage, CP/CAP Products: Coherence, Terracotta, GigaSpaces, GemStone, Hazelcast
-* Concurrency
+* **Concurrency**
 	* Shared state concurrency
 	* Message passing concurrency
 	* Dataflow concurrecny
@@ -131,15 +129,14 @@ Partitioning types:
 
 
 ## Availability Patterns
-* Fail-over: the thing you do when normal operation mode can't be done. Once resources are restored back to normal return from fail-over node 
-to normal mode. Not so simple: slide 38, as it takes time to detect failure and switch to fail-over node (that may have failed itself).
-* Replication:
-	* Master-slave: read/write from/to master node, you can only read from slave node that hold replicated data 
+* **Fail-over:** the thing you do when normal operation mode can't be done. Once resources are restored back to normal return from fail-over node to normal mode. Not so simple: slide 38, as it takes time to detect failure and switch to fail-over node (that may have failed itself).
+* **Replication**
+	* **Master-slave:** read/write from/to master node, you can only read from slave node that hold replicated data 
 	from the master. 
-	* Tree replication: tree root is master, its children are either slaves or slave/master that is a slave of the root 	      master and serves as a master to its children slvaes.
-	* Master-Master: all nodea are masters, fully synchronized, can read/wrtie from/to all nodes.
-	* Buddy Replication: nodes are connected in a ring, where each node stores its own data and backs up data for its             neightbour from left. In case a node fails the nodes update their backup data to suit new ring configuration. 
-	  2 modes: push data/pull data
+	* **Tree replication:** tree root is master, its children are either slaves or slave/master that is a slave of the 		root master and serves as a master to its children slvaes.
+	* **Master-Master:** all nodea are masters, fully synchronized, can read/wrtie from/to all nodes.
+	* **Buddy Replication:** nodes are connected in a ring, where each node stores its own data and backs up data for             its neightbour from left. In case a node fails the nodes update their backup data to suit new ring configuration. 
+	  2 modes: push data/pull data.
 	
 	
 
