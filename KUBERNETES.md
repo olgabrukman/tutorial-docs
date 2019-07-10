@@ -30,11 +30,11 @@ pods to move from machine to machine). By default a service is exposed inside a 
 might be grouped into a service, with requests from the front-end pods load-balanced among them), but a service 
 can also be exposed outside a cluster (e.g. for clients to reach frontend pods).
 
-## Architecture
+#Architecture
 Kubernetes follows the master-slave architecture. The components of Kubernetes can be divided into those 
 that manage an individual node and those that are part of the control plane.
 
-### Control Plane
+## Control Plane
 
 **etcd** is a persistent, lightweight, distributed, key-value data store developed by CoreOS that reliably stores 
 the configuration data of the cluster, representing the overall state of the cluster at any given point of time. 
@@ -51,7 +51,7 @@ Replication Controller run in. The controllers communicate with the API server t
 the resources they manage (pods, service endpoints, etc.)
 
 
-### Node Management
+# Node Management
 * A **Kubernetes Node** also known as Worker or Minion is a machine where containers (workloads) are deployed. Every node 
 in the cluster must run the container runtime (such as Docker), as well as the below-mentioned components, for 
 communication with master for network configuration of these containers.
@@ -66,10 +66,10 @@ IP and port number of the incoming request.
 * **cAdvisor** is an agent that monitors and gathers resource usage and performance metrics such as CPU, memory, 
 file and network usage of containers on each node.
 
-#Kuberenetis Commands
+## Kuberenetis Commands
 [Hands-on Tutorial](https://www.katacoda.com/courses/kubernetes)
 
-##Launch single node cluster
+## Launch single node cluster
 ```ssh
 //info
 kubectl cluster-info
@@ -172,7 +172,7 @@ http-2821759659-nsd3z   0/1       ContainerCreating   0          4s
 //now when accessing the service (curl http://172.17.0.63:8000) you'll be redirected to one of the resplicas.
 ```
 
-## Networking Introduction: Cluster IP, Target Ports, NodePort, External IPs, Load Balancer
+# Networking Introduction: Cluster IP, Target Ports, NodePort, External IPs, Load Balancer
 
 Cluster IP is the default approach when creating a Kubernetes Service. 
 The service is allocated an internal IP that other components can use to access the pods.
@@ -221,7 +221,7 @@ curl -H "Host: my.kubernetes.example" 172.17.0.25/webapp2
 curl -H "Host: my.kubernetes.example" 172.17.0.25 //will be processed by webapps3
 ```
 
-## Running Stateful Services on Kubernetes
+# Running Stateful Services on Kubernetes
 NFS is a protocol that allows nodes to read/write data over a network. The protocol works by 
 having a master node running the NFS daemon and stores the data. This master node makes certain 
 directories available over the network.
@@ -477,7 +477,7 @@ kubectl expose pod $pod -n weave --external-ip="172.17.0.151" --port=4040 --targ
 //now you can see deployment details in a browser
 ```
 
-##Getting Started with Kubeless
+## Getting Started with Kubeless
 With Kubeless you can deploy functions without the need to build containers. 
 These functions can be called via regular HTTP(S) calls or triggered by events 
 submitted to message brokers like Kafka.
