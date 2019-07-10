@@ -35,7 +35,7 @@ Why ElasticSearch
 * Elasticsearch supports almost every document type except those that do not support text rendering.
 
 
-Comparison between Elasticsearch and Relational DB
+Elasticsearch vs. Relational DB
 ======================================================
 
 Elasticsearch| RDBMS       
