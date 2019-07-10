@@ -1,5 +1,4 @@
 [REMOTE BRACNHES](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches)
-======================================
 
 Remote branch name: <remote>/<branch>, e.g. origin/master, origin/iss53.
 *origin/master* is a remote branch, *master* is a local branch you work on, *origin/master* and *master* are not the same.
