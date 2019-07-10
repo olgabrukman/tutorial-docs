@@ -1,7 +1,7 @@
 
-[https://en.wikipedia.org/wiki/Kubernetes]
-[https://kubernetes.io/docs/concepts/architecture/cloud-controller/]
-[https://kubernetes.io/docs/tutorials]
+https://en.wikipedia.org/wiki/Kubernetes
+https://kubernetes.io/docs/concepts/architecture/cloud-controller/
+https://kubernetes.io/docs/tutorials
 
 # Building Blocks
 ## Pods
@@ -9,7 +9,7 @@ The basic scheduling unit in Kubernetes is called a "pod". It adds a higher leve
 containerized components. A pod consists of one or more containers that are guaranteed to be co-located 
 on the host machine and can share resources. Each pod in Kubernetes is assigned a unique (within the cluster) 
 IP address, which allows applications to use ports without the risk of conflict. A pod can define a volume, 
-such as a local disk directory or a network disk, and expose it to the containers in the pod.[23] Pods can 
+such as a local disk directory or a network disk, and expose it to the containers in the pod. Pods can 
 be managed manually through the Kubernetes API, or their management can be delegated to a controller.
 
 ## Controllers
