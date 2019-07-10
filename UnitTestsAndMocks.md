@@ -27,7 +27,7 @@ To deal with this kind of problems several testing concepts/tools were invented 
 * Mocks are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive.
 
 
-## Mocks Are Bad Idea. 
+## Mocks Are Bad Idea
 Should design a system in layers, so that a layer that usually would be mocked can be replaced by a trivial simulation of the component, i.e., REST server implementation  would implement interface RestService. When testing an object that accesses REST server implementation, we would instantiate a REST service interface with test-specific implementation of the REST server.
 
 [Guide for Writing More Testable Code](http://misko.hevery.com/code-reviewers-guide/)
