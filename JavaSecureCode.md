@@ -1,6 +1,6 @@
 # Java Secure Code
 
-### Input validation:
+### Input Validation
 * black lists - limited
 * white lists - much better, regualar expressions 
 
@@ -29,15 +29,15 @@ e.g. steal DB, modify DB, bypass authentication/authorization
   * URLs: encode.canonicalize method
 * **Pitfalls:** create your own canonicalization methods, canonicalization after validating input, using relatinve paths.
 
-### Inforamtion Disclosure:
+### Inforamtion Disclosure
 * **Danger:** Occur when an applicationreveals sensitive information to an attacker due to:
 improper handling of exceptions, embedding sensitive information in error messages, source code, or comments, inconsistent error messages.
 * **Remedy:** 
   * Avoid hard-coding secrets, use generic error messages, never return error messages/stack traces from backend, e.g. DB, encypt sensitive data. It's easy to decompile classes and even obfuscated classes.
  * Handle all exceptions, don't expose  stack trace information, return generic error messages, use the same error message to report the same condition/redirecto to the same page in web app regardless of the cause.
 
-### Race Conditions: 
-* ** Danger:** Time of Check Time of Use (TOCTOU) - between the check time and usage time there was a change in a resource condition.    
+### Race Conditions
+* **Danger:** Time of Check Time of Use (TOCTOU) - between the check time and usage time there was a change in a resource condition.    
 * **Impact:** DoS, escalation of privilage.
 * **Remedy:** 
   * Use a random name when creating a resource
@@ -50,7 +50,7 @@ improper handling of exceptions, embedding sensitive information in error messag
 * **Remedy:** validate access to resources, restrict the application to needed resources only, use lookup table (IntegerAccessReferenceMap, RandomAccessReferenceMap) to reference the resources. 
 
 ### Cross-Site Scripting (XSS)
-* ** Danger:** 
+* **Danger:** 
   * Persistent XSS - malisious code is stored in a data store in the vulnerable web app or resource,
   * Non-persisitent XSS - malisious code uses a refelective aspect of the app, and the user is coerced into performing an action (e.g., click a link) to initiate the attack.
 * **Impact:** subversion of application logic in a variety of ways:
@@ -58,21 +58,21 @@ compromise of accounts, disclosure of information, execution of malicious code o
 elevation of priviliges.
 * **Remedy:** whitelist validation of all untrusted input, use context-sensitive encoding for untrusted output in web responces, use sanitization libraries to remove malicious code from untrusted data.
 
-### Cross-Site Request Forgery (CSRF)/Session riding/Zero click attacks
-* ** Danger:** Attacker tricks a user into loading a page with malicious request. In many apps each request automatically sends victim's credentials (e.g. session cookie or authentication credentials). Therefore, the false request cannot be distingueshed from a legitimate request. The request is sent in the context of the victim, and can change the state of the web app.
-* ** Impact:** elevation of privilages, i.e., attacker can execute in the context of the victim
-* ** Remedy:**
+### Cross-Site Request Forgery (CSRF)/Session Riding/Zero Click Attacks
+* **Danger:** Attacker tricks a user into loading a page with malicious request. In many apps each request automatically sends victim's credentials (e.g. session cookie or authentication credentials). Therefore, the false request cannot be distingueshed from a legitimate request. The request is sent in the context of the victim, and can change the state of the web app.
+* **Impact:** elevation of privilages, i.e., attacker can execute in the context of the victim
+* **Remedy:**
   * Sycnc. Token Approaches: unique per session URL tokens, double submit cookies, encypted tokens
   * Non-Sync. Tocken Approaches: validate the referrer header, validate the origin header, challenge-response
 * **Pitfalls:** client-side validation of tokens, assume that CSRF vulnerabilityaffect only GET requests,
 assume that multistep transactions are immune from CSRF attack.
 
 ### URL Redirection 
-* ** Danger:** Redirect logged in users to another page and trick them to enter sensitive information on a malisious web site.
+* **Danger:** Redirect logged in users to another page and trick them to enter sensitive information on a malisious web site.
 * **Remedy:** avoid using URL redirection (or alert user and give him a choice), avoid redirecting to URLs from an untrusted source, validate all redirection URLs, use mapping values for redirects and forwards, preventing attackers from forcing redirections to malicious websites.
 
 ### XPath Injection
-* ** Danger:** Application uses unvalidated input to construct an XPath statement to access XML tables, enabling attackers to run arbitrary commands in XML-based databases.
+* **Danger:** Application uses unvalidated input to construct an XPath statement to access XML tables, enabling attackers to run arbitrary commands in XML-based databases.
 * **Impact:** confidentiality, authentication, authorization, integrity - as sensitive  information can be stored in an XML file.
 * **Remedy:** whitelist input validation, use parameterezied XPath and XQuery interfaces, use escaping or encoding routines, do not echo XQuery errors.
 
