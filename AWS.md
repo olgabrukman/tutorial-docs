@@ -1,4 +1,4 @@
-# Overview
+# Components Overview
 
 * **Elastic Cloud Compute (EC2)** is a service that provides instances. Instance is the same as a computer. Instances can increase/decrease as defined.
 * **AMI (Amazon Machine Image)** = OS + software.
@@ -51,3 +51,22 @@ Configuration options for an entry, e.g. allowed HTTP methods, edge locations, S
 * **AWS SDK (aws-sdk artifact)** SDK operation has a Web Console entry and AWS CLI command Operation examples:
 Modify CloudWatch, invalidate CloudFront distribution, read/write to RDS
 ![aws supported SDK languages](https://github.com/olgabrukman/tutorial-docs/blob/master/aws1.png)
+
+# Monitoring Servers and Services with AWS CloudWatch
+
+CloudWatch is basically a general purpose time-series metrics repository. 
+![](https://github.com/olgabrukman/tutorial-docs/blob/master/aws9.png)
+CW core concepts are:
+1. Namespace - an abstract container to store and provide context to data while preventing collision of similar metric names. Look like Unix directory structure. AWS services reside in AWS/ namespace, e.g. AWS/EC2.
+2. Dimension - <name,value> pair that contains information to help identify a metric. Helpful for describing, filtering and grouping metrics in a namespace. 
+3. Metric - a sample of time-series data identified by the combination of namespace and metric name. Can have up to 10 dimensions. Sampling is every 1-5 minutes.
+
+CW Alarm Actions:
+1. Notification
+2. AutoScaling Action
+3. EC2 action
+![](https://github.com/olgabrukman/tutorial-docs/blob/master/aws8.png)
+
+
+
+
