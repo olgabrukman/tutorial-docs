@@ -18,24 +18,24 @@
   * Supported DBs are:MySQL, POsreSQL, SQLServer, MariaDB, Oracle, Amazon Aurora
 * **Route53 (DNS service)** Makes health checks to make sure an address is reachable.
 * **ElasticBeanstack (EB)**: Solution for your application needs. Provides:
-1. Configuration
-2. Code deployment
-3. CLI
-4. Scaling
-5. (Basic) Monitoring
-6. Application versions are stored in S3
-![](https://github.com/olgabrukman/tutorial-docs/blob/master/aws6.png)
+  1. Configuration
+  2. Code deployment
+  3. CLI
+  4. Scaling
+  5. (Basic) Monitoring
+  6. Application versions are stored in S3
+  ![](https://github.com/olgabrukman/tutorial-docs/blob/master/aws6.png)
 * **DynamoDB: NoSQL document DB service**
-1. Unlimited elastic storage
-2. No hardware choices
-3. Pay only for usage
-4. Read/write by 4KB blocks
-5. Pricing: provisioned throughput (# of read/writes per sec)+ amount of stored data
+    1. Unlimited elastic storage
+    2. No hardware choices
+    3. Pay only for usage
+    4. Read/write by 4KB blocks
+    5. Pricing: provisioned throughput (# of read/writes per sec)+ amount of stored data
 * **RedShift: data warehouse managed service** Cluster of Nodes (VMs), each Node can be different. 
  *RedShift security: 
-   1. VPC protection
-   2. Data warehouse encryption
-   3. No public IP
+    1. VPC protection
+    2. Data warehouse encryption
+    3. No public IP
 * RS Node Categories:
     1. Dense Storage Node (more storage, expensive)
     2. Dense Compute Node (less storage, more CPU, cheap)
