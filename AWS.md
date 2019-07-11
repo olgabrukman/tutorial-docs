@@ -43,4 +43,4 @@ Monitor and aggregate logs: one needs top install awslogs agent on EC2 instance.
 Configuration options for an entry, e.g. allowed HTTP methods, edge locations, SSL certificate.
 * **AWS SDK (aws-sdk artifact)** SDK operation has a Web Console entry and AWS CLI command Operation examples:
 Modify CloudWatch, invalidate CloudFront distribution, read/write to RDS
-[aws supported SDK languages](https://github.com/olgabrukman/tutorial-docs/blob/master/aws1.png)
+![aws supported SDK languages](https://github.com/olgabrukman/tutorial-docs/blob/master/aws1.png)
