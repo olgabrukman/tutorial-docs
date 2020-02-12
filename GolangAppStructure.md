@@ -18,6 +18,7 @@ func (s *server) routes() {
     s.router.HandleFunc("/about", s.handleAbout())
     s.router.HandleFunc("/", s.handleIndex())
 }
+```
 HTTP handlers hang off the server; handler functions don’t actually handle the requests, they return a function that does. If a particular handler has a dependency, take it as an argument.
 ```
 func (s *server) handleSomething() http.HandlerFunc {
