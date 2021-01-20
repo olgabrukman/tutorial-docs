@@ -50,4 +50,4 @@ https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster
 https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/
 
 ## Kafka vs RMQ
-![alt text]{https://www.upsolver.com/wp-content/uploads/2019/05/Screen-Shot-2020-05-25-at-16.13.53.png}
+![alt text](https://www.upsolver.com/wp-content/uploads/2019/05/Screen-Shot-2020-05-25-at-16.13.53.png)
