@@ -49,5 +49,57 @@ https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
 https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster
 https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/
 
-## Kafka vs RMQ
+## Kafka vs RMQ vs NAT vs Pub/Sub
 ![alt text](https://www.upsolver.com/wp-content/uploads/2019/05/Screen-Shot-2020-05-25-at-16.13.53.png)
+Apache Kafka and RabbitMQ are two open-source and commercially-supported pub/sub systems, readily adopted by enterprises. RabbitMQ is an older tool released in 2007 and was a primary component in messaging and SOA systems. Today it is also being used for streaming use cases. Kafka is a newer tool, released in 2011, which, from the onset, was built for streaming scenarios.
+
+RabbitMQ is a general purpose message broker that supports protocols including, MQTT, AMQP, and STOMP. It can deal with high-throughput use cases, such as online payment processing. It can handle background jobs or act as a message broker between microservices.
+
+Kafka is a message bus developed for high-ingress data replay and streams. Kafka is a durable message broker that enables applications to process, persist, and re-process streamed data. Kafka has a straightforward routing approach that uses a routing key to send messages to a topic.
+
+RabbitMQ Architecture
+General-purpose message broker—uses variations of request/reply, point to point, and pub-sub communication patterns.
+Smart broker / dumb consumer model—consistent delivery of messages to consumers, at around the same speed as the broker monitors the consumer state.
+Mature platform—well supported, available for Java, client libraries, .NET, Ruby, node.js. Offers dozens of plugins.
+Communication—can be synchronous or asynchronous.
+Deployment scenarios—provides distributed deployment scenarios.
+Multi-node cluster to cluster federation—does not rely on external services, however, specific cluster formation plugins can use DNS, APIs, Consul, etc.
+
+
+Apache Kafka Architecture
+High volume publish-subscribe messages and streams platform—durable, fast, and scalable.
+Durable message store—like a log, run in a server cluster, which keeps streams of records in topics (categories).
+Messages—made up of a value, a key and a timestamp.
+Dumb broker / smart consumer model—does not try to track which messages are read by consumers and only keeps unread messages. Kafka keeps all messages for a set period of time.
+Requires external services to run—in some cases Apache Zookeeper.
+
+Apache Kafka: Pull-based approach
+Kafka uses a pull model. Consumers request batches of messages from a specific offset. Kafka permits long-pooling, which prevents tight loops when there is no message past the offset.
+
+A pull model is logical for Kafka because of its partitions. Kafka provides message order in a partition with no contending consumers. This allows users to leverage the batching of messages for effective message delivery and higher throughput.
+
+RabbitMQ: Push-based approach
+RabbitMQ uses a push model and stops overwhelming consumers through a prefetch limit defined on the consumer. This can be used for low latency messaging.
+
+The aim of the push model is to distribute messages individually and quickly, to ensure that work is parallelized evenly and that messages are processed approximately in the order in which they arrived in the queue.
+
+Kafka vs RabbitMQ Performance
+Apache Kafka:
+Kafka offers much higher performance than message brokers like RabbitMQ. It uses sequential disk I/O to boost performance, making it a suitable option for implementing queues. It can achieve high throughput (millions of messages per second) with limited resources, a necessity for big data use cases.
+
+RabbitMQ:
+RabbitMQ can also process a million messages per second but requires more resources (around 30 nodes). You can use RabbitMQ for many of the same use cases as Kafka, but you’ll need to combine it with other tools like Apache Cassandra.
+
+Kafka:
+Streams with complex routing, the throughput of 100K/sec events or more, with “at least once” partitioned ordering
+Applications requiring a stream history, delivered in “at least once” partitioned ordering. Clients can see a ‘replay’ of the event stream.
+Event sourcing, modeling changes to a system as a sequence of events.
+Stream processing data in multi-stage pipelines. The pipelines generate graphs of real-time data flows.
+
+RabbitMQ:
+Granular control over consistency/set of guarantees on a per-message basis
+Complex routing to consumers
+Applications that need a variety of publish/subscribe, point-to-point request/reply messaging capabilities.
+
+[NAT vs RMQ vs Kafka](https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5)
+[Google Pub/Sub vs Kafka](https://stackoverflow.com/questions/38572071/i-am-evaluating-google-pub-sub-vs-kafka#:~:text=With%20Google%20Pub%2FSub%2C%20once,subscription%20and%20ACKed%2C%20it's%20gone.&text=Amazon%20AWS%20Kinesis%20is%20a,and%20SQS%20provides%20the%20queueing))
