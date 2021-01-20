@@ -48,3 +48,5 @@ When it comes to exactly once semantics with Kafka and external systems, the res
 https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
 https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster
 https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/
+
+
