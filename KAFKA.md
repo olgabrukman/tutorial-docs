@@ -23,7 +23,7 @@ nput streams to output streams.
 + The Connector API allows building and running reusable producers or consumers that connect Kafka 
 topics to existing applications or data systems. For example, a connector to a relational database might capture every change to a table.
 
-###Consumer groups
+### Consumer groups
 Multiple consumer groups can read from the same set of topics, and at different times catering to different logical application domains. Thus, Kafka provides both the advantage of high scalability via consumers belonging to the same consumer group and the ability to serve multiple independent downstream applications simultaneously.  
 
 If all consumers are from the same group, the Kafka model functions as a traditional message queue would. All the records and processing is then load balanced  Each message would be consumed by one consumer of the group only. Each partition is connected to at most one consumer from a group.
@@ -36,13 +36,13 @@ Kafka also eliminates issues around the reliability of message delivery by havin
 
 https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/#:~:text=Kafka%20consumers%20belonging%20to%20the,single%20consumer%20from%20the%20group.
 
-####Kafka At-Most-Once
+#### Kafka At-Most-Once
 Read the message and save its offset position before it possibly processes the message record in entirety; i.e. save to data lake. In case of failure, the consumer recovery process will resume from the previously saved offset position which is further beyond the last record saved to the data lake. This example demonstrates at-most-once semantics.  Data loss at data lake, for example, is possible.
 
-####Kafka At-Least-Once
+#### Kafka At-Least-Once
 The consumer can also read, process the messages and save to data lake, and afterward save its offset position.  In a failure scenario which occurs after the data lake storage and offset location update, a Kafka consumer addressing the failed process could duplicate data. This forms the “at-least-once” semantics in case of consumer failure.  Duplicates in the data lake could happen.
 
-####Kafka Exactly Once
+#### Kafka Exactly Once
 When it comes to exactly once semantics with Kafka and external systems, the restriction is not necessarily a feature of the messaging system, but the necessity for coordination of the consumer’s position with what is stored in the destination.  For example, a destination might be in an HDFS or object store based data lake. One of the most common ways to do this is by introducing a two-phase commit between the consumer output’s storage and the consumer position’s storage.  Or in other words, taking control of offset location commits in relation to data lake storage on a per record basis.  
 
 https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
