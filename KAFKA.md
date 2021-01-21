@@ -21,6 +21,7 @@ topics to existing applications or data systems. For example, a connector to a r
 
 ### Key Concepts
 [Reference](https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/#:~:text=Kafka%20consumers%20belonging%20to%20the,single%20consumer%20from%20the%20group)
+[Visual tutorial to Kafka](https://www.slideshare.net/PaulBrebner/a-visual-introduction-to-apache-kafka)
 + Kafka cluster: A distributed system of Kafka brokers.
 + Kafka broker: The message broker responsible for mediating the data between the producers and the consumers. They’re responsible for the bulk of I/O operations and durable persistence within the cluster.
 + ZooKeeper: Manages the overall controller status in the cluster. It acts as a configuration repository, maintaining cluster metadata and also implementing the actual mechanics of the cluster.
