@@ -3,6 +3,7 @@
 ## Overview
 
 https://kafka.apache.org/intro
+Kafka is essentially a commit log with a very simplistic data structure. It just so happens to be exceptionally fault-tolerant, horizontally scalable, and capable of handling huge throughput. This has made Kafka extremely popular for many large enterprise organisations, where applications range from pub-sub messaging to log aggregation.
 
 Kafka is generally used for two broad classes of applications:
 + Building real-time streaming data pipelines that reliably get data between systems or applications
@@ -103,3 +104,5 @@ Applications that need a variety of publish/subscribe, point-to-point request/re
 
 [NAT vs RMQ vs Kafka](https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5)
 [Google Pub/Sub vs Kafka](https://stackoverflow.com/questions/38572071/i-am-evaluating-google-pub-sub-vs-kafka#:~:text=With%20Google%20Pub%2FSub%2C%20once,subscription%20and%20ACKed%2C%20it's%20gone.&text=Amazon%20AWS%20Kinesis%20is%20a,and%20SQS%20provides%20the%20queueing))
+[Start simple kafka cluster locally](https://medium.com/better-programming/a-simple-apache-kafka-cluster-with-docker-kafdrop-and-python-cf45ab99e2b9)
+
