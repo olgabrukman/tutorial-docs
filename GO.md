@@ -51,7 +51,7 @@ Profile before optimizing. Bottlenecks will surprise you. Don’t guess where th
 ## Modules
 [Go modules](https://github.com/golang/go/wiki/Modules) are the latest and official way of managing dependencies. 
 
-1. Once per project, create go.mod (assume our project name is dbX): ```go mod init oracle.com/go/dbX```. If you’re under GOPATH (run go env GOPATH to check), you’ll need to set GO111MODULE environment variable:```export GO111MODULE=on```
+1. Once per project, create go.mod (assume our project name is dbX): ```go mod init oracle.com/go/dbX```. If you’re under GOPATH (run go env GOPATH to check), you’ll need to set GO111MODULE environment variable:```export GO111MODULE=on```
 2. To install a package run: ```go get github.com/pkg/errors```. To install a specific version run: 
 ```go get github.com/pkg/errors@v0.8.0```.
 3. To have *go mod* scan your code and update go.mod run: ```go mod tidy```.
