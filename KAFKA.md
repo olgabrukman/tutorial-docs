@@ -1,7 +1,5 @@
-## Overview
-
-https://kafka.apache.org/intro
-Kafka is essentially a commit log with a very simplistic data structure. It just so happens to be exceptionally fault-tolerant, horizontally scalable, and capable of handling huge throughput. This has made Kafka extremely popular for many large enterprise organisations, where applications range from pub-sub messaging to log aggregation.
+## Kafka Overview
+[Kafka](https://kafka.apache.org/intro) is essentially a commit log with a very simplistic data structure. It just so happens to be exceptionally fault-tolerant, horizontally scalable, and capable of handling huge throughput. This has made Kafka extremely popular for many large enterprise organisations, where applications range from pub-sub messaging to log aggregation.
 
 *Kafka is generally used for two broad classes of applications:*
 + Building real-time streaming data pipelines that reliably get data between systems or applications
@@ -22,12 +20,16 @@ nput streams to output streams.
 topics to existing applications or data systems. For example, a connector to a relational database might capture every change to a table.
 
 ### Key Concepts
-+ Topic
+[Reference](https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/#:~:text=Kafka%20consumers%20belonging%20to%20the,single%20consumer%20from%20the%20group)
++ Kafka cluster: A distributed system of Kafka brokers.
++ Kafka broker: The message broker responsible for mediating the data between the producers and the consumers. They’re responsible for the bulk of I/O operations and durable persistence within the cluster.
++ ZooKeeper: Manages the overall controller status in the cluster. It acts as a configuration repository, maintaining cluster metadata and also implementing the actual mechanics of the cluster.
++ Kafka producer: Client applications responsible for appending records to Kafka topics.
++ Kafka consumer: Client applications that read from topics.
++ Topic: messages are published to a topic, consumers are subscribed to a topic(s).
 + Partition: Ideally, the number of partitions is equal to the number of consumers. Should the number of consumers be greater, the excess consumers are idle, wasting client resources. If the number of partitions is greater, some consumers will read from multiple partitions which should not be an issue unless the ordering of messages is important to the use case. Kafka does not guarantee ordering of messages between partitions. It does provide ordering within a partition. Thus, Kafka can maintain message order by a consumer if it is subscribed to only a single partition. Messages can also be ordered using the key to be grouped by during processing.
-
 + Consumer group: Multiple consumer groups can read from the same set of topics, and at different times catering to different logical application domains. Thus, Kafka provides both the advantage of high scalability via consumers belonging to the same consumer group and the ability to serve multiple independent downstream applications simultaneously. If all consumers are from the same group, the Kafka model functions as a traditional message queue would. All the records and processing is then load balanced  Each message would be consumed by one consumer of the group only. Each partition is connected to at most one consumer from a group. When multiple consumer groups exist, the flow of the data consumption model aligns with the traditional publish-subscribe model. The messages are broadcast to all consumer groups.
   
-https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/#:~:text=Kafka%20consumers%20belonging%20to%20the,single%20consumer%20from%20the%20group.
 
 ### Delivery Modes
 Kafka also eliminates issues around the reliability of message delivery by having the option of acknowledgments in the form or offset commits of delivery sent to the broker to ensure it has reached the subscribed groups. As partitions can only have a one to one or many to one relationship to consumers in a consumer group, the replication of a message within a consumer group is avoided as a given message is reaching only one consumer in the group at a time.
@@ -47,8 +49,9 @@ https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partition
 
 ## Hands-on: Run Kafka Cluster, Run Kafdrop, And Send/Read Messages
 + [Start simple kafka cluster in docker containers](https://medium.com/better-programming/a-simple-apache-kafka-cluster-with-docker-kafdrop-and-python-cf45ab99e2b9)
-docker-compose.yml
+
 ```
+;docker-compose.yml
 version: '3'
 services:
   zookeeper:
@@ -123,6 +126,8 @@ services:
       - kafka2
       - kafka3     
 ```
+Monitor kafka topics, zookeeper, consumers by accessing kafdrop instance (localhost:9000).
+
 Listen and publish messages to kafka:
 ```
 kafkacat -C -b localhost:9091,localhost:9092,localhost:9093 -t my-topic -p 0
