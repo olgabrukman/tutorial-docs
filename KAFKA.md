@@ -103,5 +103,5 @@ Applications that need a variety of publish/subscribe, point-to-point request/re
 Additional Info:
 + [NAT vs RMQ vs Kafka](https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5)
 + [Google Pub/Sub vs Kafka](https://stackoverflow.com/questions/38572071/i-am-evaluating-google-pub-sub-vs-kafka#:~:text=With%20Google%20Pub%2FSub%2C%20once,subscription%20and%20ACKed%2C%20it's%20gone.&text=Amazon%20AWS%20Kinesis%20is%20a,and%20SQS%20provides%20the%20queueing))
-+[Start simple kafka cluster in docker containers](https://medium.com/better-programming/a-simple-apache-kafka-cluster-with-docker-kafdrop-and-python-cf45ab99e2b9)
-[Start Kafka locally](https://kafka.apache.org/quickstart)
++ [Start simple kafka cluster in docker containers](https://medium.com/better-programming/a-simple-apache-kafka-cluster-with-docker-kafdrop-and-python-cf45ab99e2b9)
++ [Start Kafka locally](https://kafka.apache.org/quickstart)
